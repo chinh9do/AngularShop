@@ -3,5 +3,6 @@
     public class ISeoable
     {
         public string MetaKeyword { set; get; }
+
     }
 }
