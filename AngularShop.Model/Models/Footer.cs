@@ -7,6 +7,7 @@ namespace AngularShop.Model.Models
     public class Footer
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string ID { get; set; }
 
         [Required]
