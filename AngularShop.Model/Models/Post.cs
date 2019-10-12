@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace AngularShop.Model.Models
 {
-    [Table("ProductCategories")]
-    public  class ProductCategory : Auditable
+    [Table("Posts")]
+    public class Post : Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -20,21 +20,21 @@ namespace AngularShop.Model.Models
         public string Name { get; set; }
 
         [Required]
-        public string Alias { get; set; }
+        public string Alass { get; set; }
 
-        public string Description { get; set; }
-
-        public int? ParentID { get; set; }
-
-        public int? DisplayOrder { get; set; }
+        public int CategoryID { get; set; }//post category
 
         public string Image { get; set; }
 
+        public string Description { get; set; }
+
+        public string Content { get; set; }
+
         public bool? HomeFlag { get; set; }
+        public bool? HotFlag { get; set; }
+        public int? ViewCount { get; set; }
 
-        public virtual IEnumerable<Product> Products { get; set; }
-
-        [ForeignKey("ProductID")]
-        public virtual OrderDetail OrderDetail { get; set; }
+        [ForeignKey("PostID")]
+        public virtual PostTag PostTag { get; set; }
     }
 }

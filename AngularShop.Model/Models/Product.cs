@@ -37,6 +37,10 @@ namespace AngularShop.Model.Models
         [ForeignKey("CategoryID")]
         public virtual ProductCategory ProductCategory { get; set; }
 
+        [ForeignKey("ProductID")]
+        public virtual ProductTag ProductTag { get; set; }
+
+
 
     }
 }

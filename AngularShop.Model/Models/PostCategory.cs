@@ -1,16 +1,11 @@
 ﻿using AngularShop.Model.Abstract;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AngularShop.Model.Models
 {
-    [Table("ProductCategories")]
-    public  class ProductCategory : Auditable
+    [Table("PostCategories")]
+    public class PostCategory : Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -20,7 +15,7 @@ namespace AngularShop.Model.Models
         public string Name { get; set; }
 
         [Required]
-        public string Alias { get; set; }
+        public string Alass { get; set; }
 
         public string Description { get; set; }
 
@@ -32,9 +27,5 @@ namespace AngularShop.Model.Models
 
         public bool? HomeFlag { get; set; }
 
-        public virtual IEnumerable<Product> Products { get; set; }
-
-        [ForeignKey("ProductID")]
-        public virtual OrderDetail OrderDetail { get; set; }
     }
 }
