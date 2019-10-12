@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AngularShop.Model.Models
@@ -11,12 +10,14 @@ namespace AngularShop.Model.Models
         public int OrderID { get; set; }
 
         [Key]
-        public int ProductID { get; set; } //product categoris
+        public int ProductID { get; set; }
 
-        [Required]
         public int Quantity { get; set; }
 
-        public virtual IEnumerable<Order> Orders { get; set; }
-        public virtual IEnumerable<ProductCategory> ProductCategories { get; set; }
+        [ForeignKey("OrderID")]
+        public virtual Order Order { get; set; }
+
+        [ForeignKey("ProductID")]
+        public virtual Product Product { get; set; }
     }
 }

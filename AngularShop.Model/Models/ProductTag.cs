@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AngularShop.Model.Models
 {
@@ -15,10 +10,14 @@ namespace AngularShop.Model.Models
         public int ProductID { get; set; }
 
         [Key]
+        [Column(TypeName = "varchar")]
+        [MaxLength(50)]
         public string TagID { get; set; }
 
-        public virtual IEnumerable<Product> Products { get; set; }
-        public virtual IEnumerable<Tag> Tags { get; set; }
+        [ForeignKey("ProductID")]
+        public virtual Product Product { get; set; }
 
+        [ForeignKey("TagID")]
+        public virtual Tag Tag { get; set; }
     }
 }
